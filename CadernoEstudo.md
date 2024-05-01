@@ -20,16 +20,16 @@ commit atraves da IDE.
 
 1. Introdução
 * Aprendizados:
-- Estrutura inicial;
-- Padrão de nomeclatutura;
-- Declarando variáveis e métodos;
-- Identação;
-- Organizando arquivos;
-- Java Beans;
+> - Estrutura inicial;
+> - Padrão de nomeclatutura;
+> - Declarando variáveis e métodos;
+> - Identação;
+> - Organizando arquivos;
+> - Java Beans;
 
 2. Anatomia das Classes
 * Anatomia das Classes 1
-- Adotar algumas convenções al criar um projeto:
+- Adotar algumas convenções ao criar um projeto:
 
 |Item|Convenção|Exemplo|
 |:---|:--------|:------|
@@ -85,9 +85,9 @@ public static void main (String [] args) {
 |`int ano = 2024`|Aqui não temos a expreção `final` e o nome da variavel esta seguindo o padrão com letras minusculas indicando que esta é uma variavel que pode ser alterada; `int` define o tipo de variavel como um Numero Inteiro.|
 
 - Outras convenções a se considerar para as variaveis:
-+ Devem conter apenas letras, _(underline), $ ou numeros de 0 a 9;
-+ Devem obrigatoriamente se iniciar preferencialmente por letras, mas tambem aceita _ ou $, jamais com numeros;
-+ Deve iniciar com letra minuscula;
-+ Não pode conter espaços (no caso de palavras compostas);
-+ Não podemos usar palavras chaves da linguagem;
-+ O nome deve se unico dentro de um escopo.
+> + Devem conter apenas letras, _(underline), $ ou numeros de 0 a 9;
+> + Devem obrigatoriamente se iniciar preferencialmente por letras, mas tambem aceita _ ou $, jamais com numeros;
+> + Deve iniciar com letra minuscula;
+> + Não pode conter espaços (no caso de palavras compostas);
+> + Não podemos usar palavras chaves da linguagem;
+> + O nome deve se unico dentro de um escopo.
