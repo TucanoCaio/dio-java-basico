@@ -91,3 +91,94 @@ public static void main (String [] args) {
 > + Não pode conter espaços (no caso de palavras compostas);
 > + Não podemos usar palavras chaves da linguagem;
 > + O nome deve se unico dentro de um escopo.
+
+;
+* Anatomia de classes 3
+- Declarando uma Variavel.
+
+Ao se declara uma variavel devemos considerar algumas convenções;
+
+~~~java
+// Estrutura
+
+Tipo nomeBemDefinido = Atribuição (opcional em alguns casos)
+
+// Exemplo
+
+int idade = 23;
+double altura = 1.62;
+Dog spike; // aqui a variavel spike não esta sendo atribuido nenhum valor
+~~~
+
+- Metodos.
+
+Assim como as `Classes` podem ser interpretadas como um objeto os `métodos` podem ser interpretados como ações a serem executadas, sendo assim é comum (e também uma boa pratica) que coloquemos os nomes dos métodos no infinitivo;
+Exemplo: *somar, subtrair, calcular, formatar, etc...*.
+
+~~~java
+// Estrutura
+
+TipoRetorno NomeObjetivoNoInfinitivo Parametro(s) // Parametros em alguns casos pode ser opcional
+
+// Exemplos
+
+int somar (int numeroUm, int numero2)
+
+String formatarCep (long cep)
+~~~
+
+;
+* Anatomia de Classes 4
+
+- Indentação;
+--
+
+* Anatomia de Classes 5
+
+- Package (Pacotes)
+Na linguagem Java quando nosso codigo vai atingindo certo nivel de complexidade começamos a organizar nossas classes em pacotes, os quais também devemos seguir algumas convenções;
+
+Exemplo: `finalidade.cliente.grupo`
+
+> + Finalidade se refere a finalidade do projeto se é comercial, organizacional, open sourse ou educacional
+>
+> |Finalidades    |Utilização            |
+> |:---           |:---                  |
+> |Comercial      |`com`                 |
+> |Organizacional |`org`                 |
+> |Open Sourse    |`org` ou `opensource` |
+> |Educacional    |`edu`                 |
+>
+>;
+>
+> + Cliente também pode ser a empresa o dono do prejeto o desenvolvedor;
+>
+> |Cliente|Utilização|
+> |:---|:---|
+> |Um empresa de nome *Hyper Tech*|`hypertech`|
+> |Um projeto desenvolvido para estudo do estudante de nome *Lucas*|`lucas`|
+>
+>;
+>
+> + Grupo se refere ao grupo de arquivos que será criado;
+>
+> |Grupo|Utilização|
+> |:---|:---|
+> |Para organizar os arquivos da 1a. semana de estudos|`primeirasemana`|
+>
+>;
+> *Exemplo*: Desta forma, se o estudante Lucas quer agrupar suas aulas por semanas de estudo ele pode utilizar a package `edu.lucas.primeirasemana`
+
+> ### Atenção.
+> Para a IDE VS Code não basta criar uma pasta de nome `edu.lucas.primeirasemana`, para criar uma package devemos adicionar ao diretorio `src` uma pasta por vez:
+> ~~~
+>   srs
+>       edu
+>           lucas
+>               primeirasemana
+> ~~~
+>
+>### Outro Ponto Importante.
+>
+> Adicionar ao inicio do cadigo em cada arquivo a qual package ele faz referencia `package edu.lucas.primeirasemana;`
+>
