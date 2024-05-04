@@ -13,13 +13,14 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
 ### Ambiente de Desenvolvimento Java
 
-1. Configração do VS Code sincronizando com o github e realizando um
-commit atraves da IDE.
+1. Configração do VS Code sincronizando com o github e realizando um commit atraves da IDE.
 
 ### Aprendendo a Sintaxe Java
 
 1. Introdução
+
     * Aprendizados:
+
     > * Estrutura inicial;
     > * Padrão de nomeclatutura;
     > * Declarando variáveis e métodos;
@@ -28,7 +29,9 @@ commit atraves da IDE.
     > * Java Beans;
 
 2. Anatomia das Classes
+
     * Anatomia das Classes 1
+
         - Adotar algumas convenções ao criar um projeto:
 
             |Item|Convenção|Exemplo|
@@ -40,6 +43,7 @@ commit atraves da IDE.
             |Variaveis|Toda variavel deve iniciar com litra minuscula e caso seja um nome composto a segunda palavra se inicia com a primeira letra maiuscula|`anoFabricacao` ou `anoFabricacaoCarro`|
 
         - Entendendo um pouco do código
+        
             ~~~java
             public class EstudoSintaxe {
 
@@ -60,15 +64,14 @@ commit atraves da IDE.
             |`System.out.print`|`System` é uma classe de sistema, contem varios tipos de operações; `out` operação de saida da classe `System`; `print` metodo impressão junto a operação `out` significa que estamos pedindo ao sistema para nos dar uma saída e esta saida será uma impressão no caso um texto definido pelo parametro `("Olá turma, ...")`|
 
     * Anatomia das Classes 2
-        - Variaveis
 
+        - Variaveis
 
             >Por padrão toda variavel é escrita com letras minusculas;
             >Exemplo: `calculadora`.
             >
             >Variaveis com nomes composto se iniciam com a primeira palavra em minusculo e todas as palavras a partir da segunda se iniciam com a primeira letra maiuscula;
             >Exemplo: `calculadoraCientifica` ou `calculadoraJurosCompostos`.
-
 
             >Algumas variaves podem receber um valor fixo o qual não dave se alterado, por exemplo se quisermos q a variavel `br` tenha sempre o valor `"Brasil"` devemos declarar com todas as letras mausculas;
             >Exemplo: `BR`
@@ -91,6 +94,7 @@ commit atraves da IDE.
             > * O nome deve se unico dentro de um escopo.
 
     * Anatomia de classes 3
+
         - Declarando uma Variavel.
 
             Ao se declara uma variavel devemos considerar algumas convenções;
@@ -127,6 +131,7 @@ commit atraves da IDE.
     * Anatomia de Classes 4
 
         - Indentação;
+
             ...
 
     * Anatomia de Classes 5
@@ -187,3 +192,55 @@ commit atraves da IDE.
             + Sempre em um unico idioma.
 
                 ### Exemplos.
+
+                ~~~java
+                // Não Recomendado
+
+                double salMedio = 1500.23; // variavel com abreviação
+                String emails = "aluno@escola.com"; // variavel no plural, recebendo apenas um valor
+                String myName = "JOSEPH"; // variavel no idioma inglês quando todas as outras estão em português
+
+                // Recomendado
+
+                double salarioMedio = 1500.23;
+                String email = "aluno@escola.com";
+                String [] emails = {"aluno@escola.com","professor@escola.com"};
+                String meuNome = "JOSEPH";
+                ~~~
+
+        - Metodos
+
+            + Nomes devem ser bem definidos de forma explicita para facilitar o entendimento do metodo;
+            + Devem ser nomeados como verbos;
+            + Todas as letras devem ser matidas em minusculo com exeção da primeira letra de cada palavra composta a partir da segunda;
+            + Devem ter uma unica finalidade.
+
+            ### Exemplos.
+
+            ~~~java
+            somar (int n1, int n2) {}
+
+            abrirConexao() {}
+
+            concluirProcessamento() {}
+
+            findById(int id) {} // ao usar algumas bibliotecas vamos precisar chamar alguns de seus metos em inglês 
+
+            calcularImprimir() {} // Algo de ERRADO, o nome deste metodo sugere duas funcionalidades; a forma correta seria ter um metodo para calcular e um outro para imprimir
+            ~~~
+
+3. Tipos de Variaveis
+
+    * Tipos de Variaveis 1
+
+        - Objetivos do curso
+            
+            Explorar os tipos de variaveis para a linguagem;
+
+                + Numéricos inteiros e decimais;
+                + Tipos lógicos;
+                + Caracteres;
+                + Objetos;
+                + Diferença entre variável e constante.
+
+    * Tipos de Variaveis 2
