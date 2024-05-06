@@ -237,10 +237,144 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
             
             Explorar os tipos de variaveis para a linguagem;
 
-                + Numéricos inteiros e decimais;
-                + Tipos lógicos;
-                + Caracteres;
-                + Objetos;
-                + Diferença entre variável e constante.
+            + Numéricos inteiros e decimais;
+            + Tipos lógicos;
+            + Caracteres;
+            + Objetos;
+            + Diferença entre variável e constante.
 
     * Tipos de Variaveis 2
+
+        Criando repositorio e ajustando VS Code;
+    
+    * Tipos de Variaveis 3
+
+        Os oito tipos primitivos são:
+
+        - int;
+        - byte;
+        - short;
+        - long;
+        - float;
+        - double;
+        - boolean;
+        - char.
+
+        |Tipo    |Memoria |Valor Min.                |Valor Max.   |
+        |:---    |:---    |:---                      |:---         |
+        |`byte`  |1 byte  |-128                      |127          |
+        |`short` |2 bytes |-32.768                   |32.768       |
+        |`int`   |4 bytes |-2.147.483.648            |2.147.483.648|
+        |`long`  |8 bytes |-9.223.372.036.854.775.808|9.223.372.036.854.775.808|
+
+        |Tipo     |Memoria |Valor Min.     |Valor Max.    |
+        |:---     |:---    |:---           |:---          |
+        |`float`  |4 byte  |-3,4028E + 38  |3,4028E + 38  |
+        |`double` |8 bytes |-1,7976E + 308 |1,7976E + 308 |
+
+        > Obs.: Tipos Numericos ignoram o 0 (zero) a esquerda;
+        > 
+        > `int cpf = 095999888;` sera armazenado como `95999888`
+        >
+        >Talvez seja interessante usar o tipo `String` nestes casos.
+        >
+        > `float` precisa encerrar com a letra `F`;
+        > `float PI = 3.14F;`
+        >
+        > `long` precisa encerrar com a letra `L`;
+        > `long cpf = 1234567890L;`
+
+        Para definir uma constante utilisamos a palavra chave `final` antes e como convenção utilizamos o nome da variavel em caixa alta:
+
+        ~~~java
+        final PI = 3.14;
+        ~~~
+
+4. Operadores
+
+    - Operadores - 1
+
+        Objetivo:
+
+        + Apresentar o significado dos símbolos especiais de acordo com a linguagem Java;
+        + Operadores aritimeticos;
+        + Operadores unários;
+        + Operadores relacionais;
+        + Operadores lógicos;
+        + Operadores ternarios.
+
+    - Operadores - 2
+
+        Classificação de operadores;
+
+        + Operador de Atribuição:
+
+            |Operadores|Comparação    |
+            |:---      |:---          |
+            |=         |Igual (Recebe)|
+
+            O operador `=` é usado para atribuir valor a uma variavel:
+
+            ~~~java
+            String nome = "Caio Tucano"; // ao definir uma varialvel como texto é preciso escrever os caracteres entre aspas
+            int idade = 22;
+            char sexo = 'M'; //tipo `char` só permite um caracter e precisa ser escrito entre aspas simples
+            Date dataNascimento = new Date ();
+            ~~~
+
+        + Operadores Aritiméticos;
+
+            Utilizados para realizar operações matematicas:
+
+            |Operadores|Comparação               |
+            |:---      |:---                     |
+            |+         |Adição                   |
+            |-         |Subtração                |
+            |*         |Multiplicação            |
+            |/         |Divisão                  |
+            |%         |Modulo (Resto da divisão)|  
+
+            ~~~java
+            double soma = 10.5 + 15.7;
+            int subtracao = 100 - 10;
+            int multiplicacao = 5 * 6;
+            int divisao = 15 / 3;
+            int modulo = 18 % 3;
+            double resultado = (10 * 7) + (20 / 4);
+            ~~~   
+
+            > Operadores de Adição `+` quando usado em `Strings` realiza a concatenação de palavras:  
+            >
+            > `"Caio" + "Tucano"` => `CaioTucano` ou
+            >
+            >`"Caio " + "Tucano"` => `Caio Tucano`
+
+    - Operadores 3
+
+        - Operador Unario;
+
+            Utilizados junto a outros operadores aritimeticos, são responsaveis por incrementar, decrementar e inverter valores numericos e booleanos.
+
+            + (+) *Operador unário de valor positivo* - números são positivossem esse operador explicitamente;
+
+            + (-) *Operador unariuo de valor negativo* - nega um numero ou expreção aritimetica (torna um valor negativo);
+
+            + (++) *Operador unario de incremento de valor* - incrementa o valor em 1 unidade;
+
+            + (--) *Operador unario de decremento de valor* - decrementa o valor em 1 unidade;
+            + (!) *Operador unario lógico de negação* - nega o valor de uma expreção booleana.
+        
+    - Operadores 4
+
+        - item
+
+        |Operadores|Comparação|
+        |:---|:---|
+        |==|Igual|
+        |!=|Diferente|
+        |>|Maior|
+        |<|Menor|
+        |>=|Maior ou Igual|
+        |<=|Menor ou Igual| 
+
+        
