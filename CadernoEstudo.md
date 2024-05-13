@@ -83,7 +83,7 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
             |`final double PI = 3.14`|`double` define o tipo da variavel como Numero decimal.|
             |`final int ESTADOS_BRASILEIROS = 27`|`int` define o tipo da variavel como Numero Inteiro.|
             |`final int ANO_2000 = 2000`|`int` define o tipo da variavel como Numero Inteiro.|
-            |`int ano = 2024`|Aqui não temos a expreção `final` e o nome da variavel esta seguindo o padrão com letras minusculas indicando que esta é uma variavel que pode ser alterada; `int` define o tipo de variavel como um Numero Inteiro.|
+            |`int ano = 2024`|Aqui não temos a expressão `final` e o nome da variavel esta seguindo o padrão com letras minusculas indicando que esta é uma variavel que pode ser alterada; `int` define o tipo de variavel como um Numero Inteiro.|
 
         - Outras convenções a se considerar para as variaveis:
             > * Devem conter apenas letras, _(underline), $ ou numeros de 0 a 9;
@@ -357,24 +357,84 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
             + (+) *Operador unário de valor positivo* - números são positivossem esse operador explicitamente;
 
-            + (-) *Operador unariuo de valor negativo* - nega um numero ou expreção aritimetica (torna um valor negativo);
+            + (-) *Operador unariuo de valor negativo* - nega um numero ou expressão aritimetica (torna um valor negativo);
 
             + (++) *Operador unario de incremento de valor* - incrementa o valor em 1 unidade;
 
             + (--) *Operador unario de decremento de valor* - decrementa o valor em 1 unidade;
-            + (!) *Operador unario lógico de negação* - nega o valor de uma expreção booleana.
+            + (!) *Operador unario lógico de negação* - nega o valor de uma expressão booleana.
         
     - Operadores 4
 
-        - item
+        - Incrementação, decrementação e negação. 
 
-        |Operadores|Comparação|
-        |:---|:---|
-        |==|Igual|
-        |!=|Diferente|
-        |>|Maior|
-        |<|Menor|
-        |>=|Maior ou Igual|
-        |<=|Menor ou Igual| 
+    - Operadores 5
 
-        
+        - Operadores ternarios
+
+            Operadores ternarios são uma forma de abreviação da estrutura `if`, utilizando os operadore `?` e `:` segindo a seginte estrutura;
+
+            > <expressão de condições> `?` < valor verdadeiro > `:` < Valor falso >
+
+            **Exemplo:**
+
+            ```java
+            //estrutura de condição if
+            int a = 5;
+            int b = 6;
+            String resultado = "";
+
+            if(a==b)
+                resultado = "verdadeiro";
+            else
+                resultado = "falso";
+
+            //Utilizando operador ternario
+            int a = 5;
+            int b = 6;
+            String resultado = a==b ?"verdadeiro" :"falso";
+            ```
+    
+    - Operadores 6
+
+        - Operadores relacionais;
+            
+            Operadores relacionais tem a proposta de aviliar relaçoes ou condições entre as expressões.
+
+            |Operadores|Comparação|
+            |:---|:---|
+            |==|Igual|
+            |!=|Diferente|
+            |>|Maior|
+            |<|Menor|
+            |>=|Maior ou Igual|
+            |<=|Menor ou Igual|
+
+    - Operadores 7
+
+        - Operadores logicos;
+
+            É o recurso que nos permite criar expressões logicas amaiores a partir da junção de duas ou mais expressões;
+
+            - `&&` - E;
+            - `||` - OU.
+
+5. Métodos
+
+    - Metodos 1
+
+        Assunto;
+
+        - Qual a proposta principal do metodo?;
+        - Qual o tipo de retorno esperado após executar o metodo? ;
+        - Quais os parametros serão necessarios para execução do metodo? ;
+        - O metodo passui o risco de apresentar alguma exceção? ;
+        - Qual a visibilidade do metodo.
+
+    - Metodos 2
+
+        Estrutura de metodos
+
+    - Metodos 3
+    
+               
