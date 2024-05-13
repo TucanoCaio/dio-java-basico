@@ -437,4 +437,46 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
     - Metodos 3
     
-               
+        Crindo projeto sistema-smart-tv
+
+6. Escopo
+
+    -   Escopo 1
+
+        - Escopo de classe;
+        - Escopo de Metodo;
+        - Escopo de fluxo.
+
+    - Escopo 2
+
+        Escopo é a fronteira de visibilidade de uma variavel;
+        
+        **Exemplo:** Uma variavel declarada no metodo não pode ser visivel por um outro metodo.
+
+7. Palavras reservadas
+
+    - Palavras reservadas 1
+
+        - Tipos primitivos;
+        - Classificações;
+        - Escopo de uso;
+        - Palavras "opostas".
+
+    - Palavras reservadas 2
+
+        São Identificadores de uma linguagem que ja possuem um finalidade especifica;
+
+        **Exempo:** `int`, `for`, `if`, ...
+
+8. Java Doc
+
+    - Java Doc 1
+        
+        - Explorar documentação oficial do Java;
+        - Tipos de comentarios;
+        - Tags;
+        - Javadoc.
+
+    - Java Doc 2
+
+    
