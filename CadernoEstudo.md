@@ -490,4 +490,78 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
     - Terminal e Argumentos 2
 
+        Executando um programa pelo terminal;
+
+        ### 1o encontre o diretorio do projeto;
         
+        Encontre nos seus arquivos a pasta onde esta salvo o projeto, no meu caso, `E:\00. C. Tucano\Bootcamp 2024\Santander Bootcamp 2024\Estudo Java\dio-java-basico\java-terminais-e-argumentos`.
+        
+        ### 2o No terminal entre no diretorio do arquivo;
+        
+        Utilize o comando `cd` seguido do diretorio do projeto:
+
+        ```
+        E:\>cd E:\00. C. Tucano\Bootcamp 2024\Santander Bootcamp 2024\Estudo Java\dio-java-basico\java-terminais-e-argumentos
+        ```
+        >observe que no exemplo meu projeto esta em disco diferente do disco do sistema neste caso preciso alternar primeiro o disco rigido dentro do terminas, basta digitar a letra de unidade seguido de :
+        >
+        >```
+        >C:\Users\tucan.DESKTOP-13EGU1H>e:
+        >
+        >E:\>
+        >```
+        >.
+    
+
+        ### 3o Entre na pasta bin;
+
+        Apos compilados as classe ficão armezenadas na pasta `bin` como `arquivos.class` digite `cd bin` para entrar na pasta:
+
+        ```
+        E:\00. C. Tucano\Bootcamp 2024\Santander Bootcamp 2024\Estudo Java\dio-java-basico\java-terminais-e-argumentos>cd bin
+        ```
+
+        ### 4o Execute o arquivo;
+
+        Agora q esta na pasta bin basta executar o arquivo digitando `java NomeArquivo` sem o `.class`:
+
+        ```
+        E:\00. C. Tucano\Bootcamp 2024\Santander Bootcamp 2024\Estudo Java\dio-java-basico\java-terminais-e-argumentos\bin>java MinhaClasse
+        
+        Oi, fui executado pelo terminal!
+        ```
+
+    - Terminal e Argumentos 3
+
+        Seguindo o mesmo processo anterior mas agura usando o array de argumentos, para isso precisamos inserir os argumentos ao chamar o Arquivo.class no terminal.
+
+        >Os argumentos inseridos passam a ser os valores das variaveis ao executar o programa.
+
+        ```java
+        public class AboutMe {
+            public static void main(String[] args) throws Exception {
+
+                String nome = args[0];
+                String sobrenome = args[1];
+                int idade = Integer.valueOf(args[2]);
+                double altura = Double.valueOf(args[3]);
+
+                System.out.println("Ola, me chamo " + nome + " " + sobrenome);
+                System.out.println("Tenho " + idade + " anos");
+                System.out.println("Minha altura é " + altura + " m");
+            }
+        }
+        ```
+        ```
+        E:\00. C. Tucano\Bootcamp 2024\Santander Bootcamp 2024\Estudo Java\dio-java-basico\java-terminais-e-argumentos\bin>java AboutMe Caio Tucano 31 1.66
+
+        Ola, me chamo Caio Tucano
+        Tenho 31 anos
+        Minha altura é 1.66 m
+        ```
+
+    - Terminal e Argumentos 4
+
+        Utilizando terminal do VS Code e configurando argumentos no arquivo `launch.json`
+
+        `"args": ["Caio","Ribeiro Tucano","31","1.66"],`
