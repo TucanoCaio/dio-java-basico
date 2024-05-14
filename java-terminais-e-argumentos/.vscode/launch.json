@@ -15,7 +15,6 @@
             "name": "AboutMe",
             "request": "launch",
             "mainClass": "AboutMe",
-            "args": ["Caio","Ribeiro Tucano","31","1.66"],
             "projectName": "java-terminais-e-argumentos_485dd8c0"
         },
         {
