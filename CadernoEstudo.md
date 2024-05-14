@@ -479,4 +479,15 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
     - Java Doc 2
 
-    
+9. Terminal e Argumentos
+
+    - Terminal e Argumentos 1
+
+        - Main args;
+        - Scanner;
+        - Execução via IDE;
+        - Execução via prompt de comando.
+
+    - Terminal e Argumentos 2
+
+        
