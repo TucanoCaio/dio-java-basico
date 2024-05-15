@@ -372,7 +372,7 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         - Operadores ternarios
 
-            Operadores ternarios são uma forma de abreviação da estrutura `if`, utilizando os operadore `?` e `:` segindo a seginte estrutura;
+            Operadores ternarios são uma forma de abreviação da estrutura `if`, utilizando os operadores `?` e `:` segindo a seginte estrutura;
 
             > <expressão de condições> `?` < valor verdadeiro > `:` < Valor falso >
 
@@ -586,4 +586,129 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         Estrutura condicional possibilita a escolha de um grupo de ações e comportamentos a serem executadas quando determinadas condições são ou não satisfeitas. As estruturas podem ser simples ou composta.
 
-    
+        - Condicionais Simples:
+
+            Ocorrem quando a condição for positiva;
+
+            ```java
+            public class CaixaEletronico {
+
+                public static void main(String[] args) throws Exception {
+                    double saldo = 25.0;
+                    double valorSolicitado = 26.0;
+
+                    if (valorSolicitado <= saldo) {
+
+                        saldo = saldo - valorSolicitado;
+
+                        System.out.println("Valor saque " + valorSolicitado + ", saldo disponivel " + saldo);
+
+                    }System.out.println("Valor solicitado não disponivel, saldo atual, " + saldo);
+                }
+            }
+            ```
+
+        - Condicional Composta:
+
+            Quando o nosso codigo segue mais de uma jornada de execução, condicionado a uma regra de negocio, este cenario é denominado ***Estrutura condicional Composta***;
+
+            ```java
+            public class ResultadoEscolar {
+
+                public static void main(String[] args) throws Exception {
+                    int nota = 8;
+
+                    if (nota >= 7){
+                        System.out.println("Aluno Aprovado");
+                    }else{
+                        System.out.println("Aluno Reprovado");
+                    }
+                }
+            }
+            ```
+
+        - Condicional Encadeada:
+
+            É um controle de fluxo condicional que não nos limitamos ao ***se*** (`if`) e ao ***senao*** (`else`), poderemos ter uma terceira ou inumeras condições;
+
+            ```java
+            public class ResultadoEscolarEncadeado {
+
+                public static void main(String[] args) throws Exception {
+
+                    int nota = 7;
+
+                    if (nota >= 7) {
+                      System.out.println("Aluno aprovado");
+                      
+                    }else if (nota >= 5 && nota < 7) {
+                        System.out.println("Aluno esta de recuperação");
+
+                    }else {
+                        System.out.println("Aluno reprovado");
+                    }
+                }
+            }
+            ```
+
+        - Condição Ternaria:
+
+            Usa os operadores ternarios para substituir a estrutura do `if` - `else` deixano o codigo um pouco mais limpo;
+
+            ```java
+            public class ResultadoEscolarEncadeado {
+
+                public static void main(String[] args) throws Exception {
+
+                    int nota = 7;
+
+                    String resultado = nota >= 7 ? "Aprovado" : nota >= 5 ? "de Recuperação" : "Reprovado";
+                    System.out.println("O aluno esta " + resultado);
+
+                    /*if (nota >= 7) {
+                      System.out.println("Aluno aprovado");
+                      
+                    }else if (nota >= 5 && nota < 7) {
+                        System.out.println("Aluno esta de recuperação");
+
+                    }else {
+                        System.out.println("Aluno reprovado");
+                    }*/
+                }
+            }
+            ```
+        - Switch Case:
+
+            A estrutura `switch` compara o valor de cada caso com o da variavel sequencialmente, e executa o codigo associado ao caso correspondente, para evitar que as comparações continuem sendo executadas apos um caso correspondente adicionamos o comando `break` no final de cada caso. Ocomando `break` encerra a execução da estrutura onde ele se encontra;
+
+            ```java
+            public class SistemaMedida {
+
+                //switch e case
+
+                public static void main(String[] args) {
+
+                    String sigla = "M";
+
+                    switch (sigla) {
+
+                        case "P": {
+                            System.out.println("Pequeno");
+                             break;
+                        }
+                        case "M": {
+                            System.out.println("Medio");
+                             break;
+                        }
+                        case "G": {
+                            System.out.println("Grande");
+                             break;
+                        }
+                        default: {
+                            System.out.println("Indefinido");
+                            break;
+                        }
+                    }
+                }
+            }
+            ```
