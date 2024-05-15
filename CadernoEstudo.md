@@ -565,3 +565,25 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
         Utilizando terminal do VS Code e configurando argumentos no arquivo `launch.json`
 
         `"args": ["Caio","Ribeiro Tucano","31","1.66"],`
+
+### Introdução e Estruturas condicionais com Java
+
+1. Intridução
+
+    - Visão Geral
+
+        Aprensentar os conseitos e explorar os tipos de fluxos condicional, e de repetição em uma aplicação Java.
+
+        **Assuntos:**
+
+        - Estruturas Condicionais: `if` - `else`, `switch` - `case`;
+        - Estruturas de repetição: `for`, `while`, `do` - `while`;
+        - Estruturas de exceções: `try` - `catch` - `finally`, `throw`.
+
+2. Estruturas Condicionais
+
+    - Condicional Simples
+
+        Estrutura condicional possibilita a escolha de um grupo de ações e comportamentos a serem executadas quando determinadas condições são ou não satisfeitas. As estruturas podem ser simples ou composta.
+
+    
