@@ -729,3 +729,164 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
             //expreção de validação torne-se falsa.
         }
         ```
+
+        ```java
+        public class ExemploFor {
+
+            public static void main(String[] args) throws Exception {
+
+                for( int carneirinhos = 1; carneirinhos <=20; carneirinhos ++){
+
+                    System.out.println("Contando carneirinhos ... : " + carneirinhos);
+                }
+
+                System.out.println("Joãozinho dormiu.");
+            }
+        }
+        ```
+
+    - For e Arrays
+
+        Também usamos o controle de fluxo `for` para interagir sobre arrays e coleções:
+
+        ```java
+        public class ExemploForArray {
+
+            public static void main(String[] args) {
+
+                String alunos[] = { "FELIPE", "JOANA", "JULIA", "MARCOS" };
+
+                for (int x = 0; x < alunos.length; x ++){
+
+                    System.out.println("O aluno no indice x=" + x + " é " + alunos[x]);
+                }
+            }
+        }
+        ```
+
+        > #### For Each
+        >
+        >O uso do `for / each` esta fortemente relacionado com o cenário
+        >onde contenha array ou coleção, e assim a interação é baseada
+        >aos elementos da coleção:
+        >
+        >```java
+        >public class ExemploForArray {
+        >   public static void main(String[] args) {
+        >       String alunos[] = { "FELIPE", "JOANA", "JULIA", "MARCOS" };
+        >       for(String aluno : alunos){
+        >           System.out.println("O nome do aluno é : " + aluno);
+        >       }
+        >   }
+        >}
+        >```
+        >.
+
+    - Break e Continue
+
+        `break` significa quebrar, parar, frear ou interromper. E é isso que o Java faz quando encontra esse comando. `continue`, como o nome diz, ele 'continua' o laço. O comando `break` interrompe o laço e o comando `continue` interrompe somente a interação atual.
+
+        ```java
+        public class ExemploBreakContinue {
+            public static void main(String[] args) {
+                System.out.println("Teste break");
+                for( int numero = 1; numero <= 5 ; numero ++){
+                    if (numero == 3) {
+                        break;
+                    }
+                    System.out.println(numero);
+                }
+
+                System.out.println("Teste Continue");
+                for( int numero2 = 1; numero2 <=5; numero2 ++){
+                    if (numero2 == 3) {
+                        continue;
+                    }
+                    System.out.println("Numero: " + numero2);
+                }
+            }
+        }
+        ```
+
+    - While
+
+        O laço `while` (na tradução da lingua portuguesa 'enquanto') determina que enquanto uma condição for valida, o bloco de codigo sera executado. O laço `while` testa a condição antes de executar o codigo, logo, caso a condição seja invalida no primeiro teste o bloco nem será executado:
+
+        ```java
+        //estrutura de controle de fluxo com while
+
+        while (expressão booleana de validação) {
+
+            //comando que será executado até que a
+            //expreção de validação torne-se falsa
+
+        }
+        ```
+        ```java
+        import java.util.concurrent.ThreadLocalRandom;
+
+        public class ExemploWhile {
+
+            public static void main(String[] args) {
+
+                double mesada = 50.0;
+
+                while (mesada>0) {
+
+                    double valorDoce = valorAleatorio();
+
+                    if (valorDoce > mesada) {
+                        valorDoce = mesada;
+                    }
+
+                    System.out.println("Doce no valor: " + valorDoce + " adicionado ao carrinho");
+                    mesada = mesada - valorDoce;
+                }
+
+                System.out.println("Mesada: " + mesada);
+                System.out.println("Joãozinho gastou toda sua mesada em doces");
+            }
+
+            private static double valorAleatorio() {
+                return ThreadLocalRandom.current().nextDouble(2, 8);
+            }
+        }
+        ```
+
+    - Do While
+
+        O laço `do / while` (na tradução para lingua portuguesa 'faça enquanto'), assim como o `while`, considera que enquanto uma condição for valida o bloco de codigo será executado. Entretanto, `do / while` testa a condição após executar o código, sendo assim, mesmo que a condição seja invalida no promeiro teste o bloco será executado pelo menos uma vez.
+
+        ```java
+        // estrutura do controle de fluxo do while
+        
+        do {
+            // comando que será executado até que a
+            // expressão de validação torne-se falsa
+        }while (expressão booleana de validação);
+        ```
+
+        ```java
+        import java.util.Random;
+
+        public class ExemploDoWhile {
+
+            public static void main(String[] args) {
+        
+                System.out.println("Discando...");
+
+                do{
+                    //executando repetidas vezes até alguem atender
+                    System.out.println("Telefone tocando");
+                }while (tocando());
+                
+                System.out.println("Alô!");
+            }
+
+            public static boolean tocando(){
+                boolean atendeu = new Random().nextInt(3) == 1;
+                /*System.out.println("Atendeu? " + atendeu);*/
+                return !atendeu;
+            }
+        }
+        ```
