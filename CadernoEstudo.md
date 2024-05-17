@@ -712,3 +712,20 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
                 }
             }
             ```
+
+### Estruturas de repetição em Java
+
+1. Estruturas de Repetição;
+
+    - For
+        
+        O comando `for` (na tradução brasileira "para") permite que uma variavel contadora seja testada e incrementada a cada interação:
+
+        ```java
+        // estrutura de controle de fluxo for
+
+        for (bloco de inicialização; expressão booleana de validação; bloco de atualização){
+            //comando que será executado até que a
+            //expreção de validação torne-se falsa.
+        }
+        ```
