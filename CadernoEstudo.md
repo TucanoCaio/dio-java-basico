@@ -890,3 +890,74 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
             }
         }
         ```
+
+### Java e Tratamento de Exceções
+
+1. Estruturas Excepcionais;
+
+    - Try/Catch
+
+        Ao executar o código Java, diferentes erros podem acontecer: erros de codificação feitos pelo programador, erros devido a entrada errada ou outros imprevistos.
+
+        Quando ocorre um erro, o Java normalmente para e gera uma mensagem de erro. O termo técnico para isso é: Java lançará ema exceção (jogará um erro).
+
+        De forma interpretativa em Java, um erro é algo irreparável, a aplicação trava ou é encerrada drasticamente. Já exceções e um fluxo inasperado da nossa aplicação, querer dividir um valor por zero, querer abrir um arquivo que não existe, abrir uma conexão em banco com usuário ou senha inválida. Todos esses cenarias e os demais não são erros mais sim fluxos não previsto pela aplicação.
+
+        É ai que entra mais uma responsabilidade do desenvolvedor, prever situações iguais a esta e realizar o que denominamos ***Tratamento de Exceções***.
+
+        #### Conhecendo as exções já mapeadas.
+
+        A linguagem Java dispõe de uma vasta lista de classes que representam exceções abaixo iremos apresentar as mais comuns:
+
+        |Nome|Causa|
+        |:---|:---|
+        |`java.lang.NullPointerException`|Quando tentamos obter informações de uma variavel nula|
+        |`java.lang.ArithmeticException`|Quando tentamos dividir um valor por zero|
+        |`java.sql.SQLException`|Quando existe algum erro relacionado a interação com banco de dados|
+        |`java.io.FileNotFoundException`|Quando tentamos ler ou escrever em um arquivo que não existe|
+
+        ```java
+        import java.util.InputMismatchException;
+        import java.util.Locale;
+        import java.util.Scanner;
+
+        public class AboutMe {
+            public static void main(String[] args) throws Exception {
+
+                try {
+                Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+
+                System.out.println("Digite seu nome: ");
+                String nome = scanner.next();
+
+                System.out.println("Digite seu sobrenome: ");
+                String sobrenome = scanner.next();
+
+                System.out.println("Digite sua idade: ");
+                int idade = scanner.nextInt();
+
+                System.out.println("Digite sua altura: ");
+                double altura = scanner.nextDouble();
+
+                System.out.println("Ola, me chamo " + nome + " " + sobrenome);
+                System.out.println("Tenho " + idade + " anos");
+                System.out.println("Minha altura é " + altura + " m");
+                }
+                catch (InputMismatchException e) {
+                    System.out.println("Os campos idade e altura precisam ser numericos.");
+                }
+            }
+        }
+        ```
+
+    - Exeções checadas e não checadas ....
+
+        .....
+
+### Debugging Java
+
+1. Apresentação e visão geral
+
+    - Apresentação e visão geral
+
+    
