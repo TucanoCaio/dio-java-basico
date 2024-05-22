@@ -960,4 +960,65 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
     - Apresentação e visão geral
 
+## Programação Orientada a Objetos com Java
+
+### Fundamentos da Programação Orientada a Objetos com Java
+
+1. Fundamentos da Programação Orientada a Objetos com Java
+
+    - Introdução
+
+        Assuntos abordados
+
+        - Conceito de POO;
+        - Pacotes de Visibilidade de recursos;
+        - Classes e Construtores;
+        - Java Beans e UML;
+        - Pilares do POO;
+        - Enums e Interfaces;
+
+    - Conceitos POO
+
+        - Linguagem de **Baixo Nível**: São linguagens que estão mais procimas da interpretação da maquina. ***Linguagem Assembly e C***;
+
+        - Linguagem de **Alto Nível**: São linguagens que disponibilizam uma proposta de sintaxe (forma de escrever processos para serem executados pelo computador) mais próxima de interpretação humana. ***Java, JavaScript, Python e C++***.
+
+        **Programação estruturada**
+
+        **A programação estruturada** é um *paradigma de programação que* visa melhorar a clareza, a qualidade e o tempo de denvolvimento de um *programa de computador*, fazendo uso estensivo das construções de fluxo de controle estruturado de seleção (`if / then / else`) e repetições (`while` e `for`), *estruturas de bloco* e *sub - ratinas*.
+
+        O que devemos ter em mente, é que na programação estruturada implementamos algoritimos com estruturas sequenciais denominados de procedimentos lineares, podendo afetar o valor das variáveis de escopo local ou global em uma aplicação.
+
+        **Programação orientada a objetos**
+
+        POO é um *paradigma de programação* baseado no conceito de "*objetos*", que podem conter *dados* na forma de *campos*, também conhecidos como atributos, e códigos, na forma de *procedimentos*, também conhecidos como *métodos*.
+
+        O que precisamos entender, é que cada vez mais as linguagens se adequam ao cenário real, proporcionando assim que o programador desenvolva algoritimos mais próximo de fluxos comportamentais, logo tudo ao nosso redor é representado como Objeto.
+
+        >Enquanto a programação é voltada a 
+        >procedimentos e funções definidas pelo 
+        >usuário, a programação orientada a 
+        >objetos é voltada a conceitos como o de 
+        >classes e objetos.
     
+    - Classes
+
+        Toda a estruturação de código na linguagem Java é distribuído em arquivos com estensão `.java` denominados de **classe**.
+
+        As classes existentes em nosso projeto são composta por:
+
+        **Identificador**, **Características** e **Comportamentos**.
+
+        - **Classe** (class): A estrutura e/ou representação que direciona a criação dos objetos de mesmo tipo.
+
+        - **Identificador** (identity): Propósito existencial aos objetos que serão criados.
+
+        - **Características** (states): Também conhecidos como **atributos** os **propriedades**, é toda informação que representa o estado do objeto.
+
+        - **Comportamentos** (behavior): Também conhecido como **ações** ou **métodos**, é toda parte comportamental que um ojeto dispõe.
+
+        - **Instanciar** (new): É o ato de criar um objeto a partir de estrutura definida em uma classe.
+
+        ***Exemplo:***
+
+        ```java```
