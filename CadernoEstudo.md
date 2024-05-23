@@ -995,10 +995,8 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         O que precisamos entender, é que cada vez mais as linguagens se adequam ao cenário real, proporcionando assim que o programador desenvolva algoritimos mais próximo de fluxos comportamentais, logo tudo ao nosso redor é representado como Objeto.
 
-        >Enquanto a programação é voltada a 
-        >procedimentos e funções definidas pelo 
-        >usuário, a programação orientada a 
-        >objetos é voltada a conceitos como o de 
+        >Enquanto a programação é voltada a procedimentos e funções definidas pelo 
+        >usuário, a programação orientada a objetos é voltada a conceitos como o de 
         >classes e objetos.
     
     - Classes
@@ -1021,4 +1019,382 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         ***Exemplo:***
 
-        ```java```
+        Seguindo algumas convenções, as nossa classes são classificadas como:
+
+        - **Classe de modelo (model)**: classes que representem estrutura de domínio da aplicação, exemplo: Cliente, Pedido, Nota Fiscal e etc.
+
+        - **Classe de serviço (service)**: classes que contém regras de negócio validação de nosso sistema.
+
+        - **Classe de repositório (repository)**: classe que contém uma integração com banco de dados.
+
+        - **Classe de controle (controller)**: classes que possuem a finalidade de disponibilizar alguma comunicação externa à nossa aplicação, tipo http web ou webservices.
+
+        - **Classe utilitária (util)**: classe que contém recursos comuns à toda nossa aplicação.
+
+    - Pacotes
+
+        **Nomeclatura**
+
+        Vamos imaginar que sua empresa se chama **Power Soft** e ela está desenvolvendo softwares comercial, governamental e um software livre ou de código aberto. Abaixo teríamos os pacotes sugeridos conforme tabela:
+
+        - **Comercial**: com.powersoft
+        - **Governamental**: gov.powersoft
+        - **Código aberto**: org.powersoft
+
+        Bem, acima já podemos perceber que existe uma definição para o uso do nome dos pacotes, porém podemos organizar ainda mais um pouco as nossas classes mediante a proposta de sua existência:
+
+        - **Model**: Classe que representam a camada de modelo da aplicação: Cliente, Pedido, NotaFiscal, Usuario.
+
+        - **repository**: Classe ou interfaces que possuem a finalidade de interagir com tabelas na banco de dados: ClienteRepository.
+
+        - **service**: Classe que contém regras de negócio do sistema: ClienteService possui o método validar o CPF do cliente cadastrado.
+
+        - **controller**: Classe que possuem a finalidade de disponibilizar os nossos recursos da aplicação para outras aplicações via padrão HTTP.
+
+        - **view**: Classes que possuem alguma interação com a interface gráfica acessada pelo usuário.
+
+        - **util**: Pacote que contém classes utilitárias do sistema: FormatodorNumeroUtil, ValidadorUtil.
+
+        **Identificação**
+
+        Uma das características de uma classe é a identificação, Cliente, NataFiscal, TituloPagar, porém quando esta classe é organizada por pacotes, ela passa a ter duas identificações. O nome simples (**próprio nome**) e agora o nome qualificado (**endereçamento do pacote + nome**), exemplo: Considere a classe Usuario que está endereçada no pacote com.controle.acesso.model, o nome qualificado desta classe é **com.controle.acesso.model.Usuario**
+
+        **Package versus Import**
+
+        A localização de uma classe é definida pela palavra reservada package, logo, uma classe só contém uma definição de package no arquivo, sempre na primeira linha do código. Para a utilização de uma classe existentes em outros pacotes, necessitamos realizar a importação das mesmas, seguindo a recomendação abaixo:
+
+        ```java
+        package /* Nome da package correspondente */;
+
+        import /* caso minha classe utilize outras classes precisa ser importado*/;
+
+        public class MinhaClasse {
+            // Começa a classe
+        }
+        ```
+
+        **Por que é tão importante compreender de pacotes?**
+
+        A linguagem Java é composta por milhares de classes internas, classes desenvolvidas em projetos disponíveis através de bibliotecas e as classes do nosso projeto. Logo, existe uma enorme possibilibade da existência de classes de mesmo nome.
+
+        É nesta hora, que nós desenvolvedores precisamos detectar qual classe iremos importar em nosso projeto.
+
+        Um exemplo clássico é a existencia das classes **java.sql.Date** e **java.util.Date** da própria linguagem. (Pesquisar sobre a diferença das duas classes)
+
+    - Visibilidade de recurso
+
+        **Modificadores**
+
+        Em Java, utilizamos tês palavras reservadas e um conceito default (sem nenhuma palavra reservada) para definir os quatro tipos de visibilidade de atributos, métodos e até mesmo classes no que se refere ao acesso por outras classes. Iremos ilustrar do mais visível ao mais restrito de visibilidade nos arquivos em nosso projeto.
+
+        Para uma melhor ilustração, iremos representar os conceitos de visibilidades de recursos através do contexto em uma lanchonete que vende lanche natural e suco.
+
+        **Modificador public** 
+
+        Como o próprio nome representa, quando nossa classe, método e atributo é definido como public, qualquer outra classe em qualquer outro pacote pode visualizar tais recursos.
+
+        **Modificador default**
+
+        O modificador **default** está fortemente associado a organização das classes por pacotes, algumas implementações não precisam estar deisponíveis por todos o projeto, e este modificador de acesso restringe a visibilidade por pacotes.
+
+        Dentro do pacote **lanchonete**, iremos criar dois sub-pacotes para representar a divisão do estabelecimento.
+
+        - **lanchonete.atendimento.cozinha**: Pacote que contém classes da cozinha da lanchonete e atendimentos.
+
+        - **lanchonete.area.cliente**: Pacote que contém classes relacionadas ao espaço do cliente.
+
+        **Modificador private**: Depois de reestruturar nosso estabelecimento (projeto), onde, temos as divisões (pacotes) espaço do do cliente e atendimento, chegou a hora de uma reflexão sobre visibilidade ou modificadores de acesso.
+
+        Conhecemos as ações disponíveis nas classes Cozinheiro, Almoxarife, Atendente e Cliente ,mesmo com a organização da visibilidade por pacote, será que realmente estas classes precisam ser tão explicitas?
+
+        - Será que o Cozinheiro precisa saber que/como o almoxarife controle as entradas e saídas?
+
+        - Que o Cliente precisa saber como o Atendente recebe o pedido para servir sua mesa?
+
+        - Que o Atendente precisa saber que antes de pagar o Cliente consulta o saldo no App?
+
+        Diante destes questionamentos é que nossas classes precisam continuar mantendo suas ações (métodos) mas nem todas precisam ser vistas por ninguém.
+
+    - Getter e Setters
+
+        Seguindo a convenção Java Beans, uma classe que contém esta estrutura de estados deverá seguir as regras a baixo:
+
+        - Os atributos precisam ter o modificador de acesso private. Ex.: `private String nome`;
+
+        - Como agora os atributos estarão somente a nível de classe, precisaremos dos métodos **get**X e **set**X, Ex.: `getNome()` e `setNome(String novoNome)`;
+
+        - O método `get` é responsável por obter o valor atual do atributo, logo ele precisa ser `public` retornar um tipo correspondente ao valor, Ex.: `public String getNome() {}`;
+
+        - O método `set` é responsável por definir ou modificar o valor de um atributo em um objeto, logo ele também precisa ser public, receber um parâmetro do mesmo tipo da variável mas não retorna nenhum valor void. Ex.: `public void setNome(String newNome)`;
+
+    - Construtores
+
+        Sabemos que para criar um objeto na linguagem Java utilizamos a seguinte estrutura de código:
+
+        ```java
+        Classe novoObjeto = new Classe();
+        ```
+
+        Desta forma será criado um novo objeto na memória, este recurso também é conhecido como instanciar um novo objeto.
+
+        Muitas das vezes já queremos que na criação (instanciação) de um objeto, a linguagem já solicite para quem for criar este novo objeto que defina algumas propriedades essenciais. Abaixo iremos ilstrar uma classe Pessoa onde a mesma terá os atributos: Nome, CPF, Endereço.
+
+        ```java
+        package pessoa;
+
+        public class Pessoa {
+            private String nome;
+            private String cpf;
+            private String endereco;
+
+            public String getNome() {
+                return nome;
+            }
+
+            public String getCpf() {
+                return cpf;
+            }
+
+            public String getEndereco() {
+                return endereco;
+            }
+
+            public void setEndereco(String endereco) {
+                this.endereco = endereco;
+            }
+        }
+        ```
+
+        Criaremos uma `Pessoa` mas como não temos o setter para o nome e CPF, este objeto não tem como receber estes valores.
+
+        ```java
+        package pessoa;
+
+        public class SistemaCadastro {
+
+            public static void main(String[] args) {
+                Pessoa marcos = new Pessoa();
+
+                marcos.setEndereco("Rua das Marias");
+
+                System.out.println(marcos.getNome()+"-"+marcos.getCpf());
+                //Retorno: Null-Null
+            }
+        }
+        ```
+
+        Entrando em cena o construtor para criarmos nossos objetos já com valores requeridos no momento da criação/unstanciação (`new`)
+
+        ```java
+        //Classe Pessoa.java
+        package pessoa;
+
+        public class Pessoa {
+
+            private String nome;
+            private String cpf;
+            private String endereco;
+
+            // método construtor
+            // o nome devera ser igual ao nome da classe
+            public Pessoa (String cpf, String nome) {
+                this.cpf = cpf;
+                this.nome = nome;
+            }
+
+            public String getNome() {
+                return nome;
+            }
+
+            public String getCpf() {
+                return cpf;
+            }
+
+            public String getEndereco() {
+                return endereco;
+            }
+
+            public void setEndereco(String endereco) {
+                this.endereco = endereco;
+            }
+        }
+
+        //Classe SistemaCadastro.java
+        package pessoa;
+
+        public class SistemaCadastro {
+
+            public static void main(String[] args) {
+                // Adicionando parametros do metodo construtor direto na declaração do Objeto
+                Pessoa marcos = new Pessoa("123", "Marcos");
+
+                marcos.setEndereco("Rua das Marias");
+
+                System.out.println(marcos.getNome()+"-"+marcos.getCpf());
+            }
+        }
+        ```
+
+    - Enums
+
+        Enum é um tipo especial de classe onde os objetos são previamente criados, imutáveis e disponível por tada aplicação.
+
+        Usamos Enum quando o nosso modelo de negócio contém objetos de mesmo contexto que já existem de forma pré-estabelecida com a certeza de não haver tanta alteração de valores.
+
+        **Exemplos:**
+
+        **Grau de Escolaridade:** Analfabeto, Fundamental, Médio, Superior.
+
+        **Estado Civil:** Solteiro, Casado, Divorciado, Viúvo
+
+        **Estados Brasileiros:** São Paulo, Rio de Janeiro, Piauí, Maranhão, etc...
+
+        > Não confunda uma lista de constantes com enum.
+
+        Enquanto que uma constante é uma variável de tipo com valor imutável, um enum é um conjunto de objetos já pre-definidos na aplicação.
+
+        Como um enum é um conjunto de objetos, logo, estes objetos podem conter atributos e metodos. Veja o exemplo de um enum para disponibilizar os quatro estados brasileiros citados acima, contendo informações de Nome, Sigla, e um metodo que pega o nome de cada estado e já retorna para tudo maiusculo.
+
+        ```java
+        // Classe (enum) EstadoBrasileiro.java
+        package exemploenum;
+
+        public enum EstadoBrasileiro {
+
+            SAO_PAULO ("SP","São Paulo"),
+            RIO_Janeiro ("RJ","Rio de Janeiro"),
+            PIAUI ("PI", "Piauí"),
+            MARANHAO ("MA","Maranhão");
+
+            private String nome;
+            private String sigla;
+
+            private EstadoBrasileiro (String sigla, String nome){
+                this.sigla = sigla;
+                this.nome = nome;
+            }
+
+            public String getNome() {
+                return nome;
+            }
+
+            public String getSigla() {
+                return sigla;
+            }
+
+            public String getNomeMaiusculo () {
+                return nome.toUpperCase();
+            }
+        }
+
+        // Classe SistemaIbge.java
+        package exemploenum;
+
+        public class SistemaIbge {
+            public static void main(String[] args) {
+                /*for (EstadoBrasileiro e : EstadoBrasileiro.values()){
+                    System.out.println(e.getSigla() + " - " + e.getNome());
+                }*/
+
+                EstadoBrasileiro eb = EstadoBrasileiro.PIAUI;
+
+                System.out.println(eb.getSigla());
+                System.out.println(eb.getNome());
+                System.out.println(eb.getNomeMaiusculo());
+
+            }
+        }
+        ```
+
+    - UML
+
+        Linguagem de Modelagem Unificada ou UML é uma notação que possibilita a representação gráfica do projeto.
+
+        Na UML temas três conceitos necessários para compreendermos inicialmente:
+        **diagramas**, **elementos** e **relacionamentos**.
+
+        As notações UML são distribuidas em duas categorias de diagramas, a estrutural e comportamental conforme listagem abaixo:
+
+        **Diagramas estruturais**
+
+        - **Diagrama de classe**: O Diagrama de Classe é utilizado para fazer a representação de estruturas de classes de negocio, interfaces e outros componentes do sistema, Por esta caracteristica, este diagrama é considerado a mais importante para a UML, pois auxilia a maioria dos demais diagramas.
+
+        - **Diagramas de objetos**: Este diagrama representa os objetos existentes em um determinado instante ou fato na aplicação. assim conseguimos ter uma perspectiva do estado de nossos objetos mediamente a interação dos usuarios na sistema.
+
+        >Existem outras categorias de diagramas 
+        >estruturais e comportamentais, porém 
+        >iremos focar nos citados acima.
+
+        **Diagrama de classe**
+
+        O diagrama de classe ilustra **graficamente** como classes serão estruturadas e interligadas entre si diante da proposta do nosso software.
+
+        em diagrama e estrutura das classes é contituida por:
+
+        **Identificação**: Nome e/ou finalidade da classe
+
+        **Atributos**: Propriedades e/ou características
+
+        **Operações**: Ações e/ou metodos
+
+        **Relacionamentos**
+
+        Em um diagrama as classes podem existir de forma independente, mas obviamente haverá em alguma etapa a aplicação e necessidade de algumas se relacionarem, o que devemos compreender é o nivel de dependencia entre elas:
+
+        Associação
+
+        Uma assiciação define em relacionamento entre duas classes, permitindo que um objeto tenha acesso a estrutura de um outro objeto.
+
+        - **Agregação**: Em uma agregação a classe principal contém uma relação com outra classe ela pode existir sem a classe agregadoara. Imagina em um cadastro de Candidatos, podemos encontrar candidatos que ainda não possuam uma profissão.
+
+        - **Composição**: A composição já caracteriza uma dependência existencial entre a classe principal e a classe associada. Imaginamos que uma admissão só poderá existir contendo suas informações básicas e a composição do candidato selecionado.
+
+        **Multiplicidade**
+
+        Nem sempre o relacionamento entre as classes será de **um para um**, um determinado cenário poderá exigir multiplicidades específicas conforme opções abaixo:
+
+        - 1.-> Representa uma assiciação **contendo um elemento**.
+        - *. -> Representa uma associação **contendo uma lista de elementos**.
+        - 0..1 -> Representa uma associação **contendo zero ou um elemento**.
+        - 0..* -> Representa uma associação **contendo zero ou uma lista de elementos**.
+        - 1..* -> Representa uma associação **contendo um ou uma lista de alementos**.
+
+        **Visibilidade**
+
+        Os atributos e metodos de uma classe podem recebem niveis de visibilidade, e na UML existem símbolos que representam cada um deles.
+
+        - (+) Visibilidade publica
+        - (#) Visibilidade protegida (muita associada com herança)
+        - (-) Visibilidade privado
+
+### Pilares da Programação Orientada a Objetos em Java
+
+1. Pilares da Programação Orientada a Objetos em Java
+
+    - Pilares do POO
+
+        **Programação orientada a objetos** (**POO**, ou **OOP** segundo as suas siglas em inglês) é um *paradigma de programação* baseado no conceito de "*objetos*", que podem conter *dados* na forma de *campos*, também conhecidos como ***atributos***, e códigos, na forma de *procedimentos*, também conhecidos como *métodos*.
+
+        Como se trata de um contexto análogo ao mundo real, tudo no qual nos referimos são objetos, exemplo: Conta bancária, Aluno, Veículo, Transferência etc.
+
+        A programação orientada a objetos é bem requisitada no contexto das aplicações mais atuais no mercado devido a possibilidade de reutilização de código e a capacidade de representação do sistema ser muito mais próximo do mundo real.
+
+        Para uma linguagem ser considerada orientada a objetos, esta deve seguir o que denominamos como **Os quatro pilares da orientação a objetos**:
+
+        - **Encapsulamento**: Nem tudo precisa estar visível, grande parte do nosso algoritmo pode ser distribuído em métodos com finalidades específicas que complementa uma ação em nossa aplicação.
+        *Exemplo*: Ligar um veículo exige muitas etapas para a engenharia, mas o condutor só visualiza a ignição, dar a partida e a "*magia*" acontece.
+
+        -**Herença**: Características e comportamentos comuns podem ser elevados e compartilhados através de uma hierarquia de objetos.
+        *Exemplo*: Um Carro e uma Motocicleta possuem propriedades como placa, chassi, eno de fabricação e métodos como acelerar e frear. Logo para não ser um processo de codificação redundante, podemos desfrutar da herança criando uma classe **Veiculo** para que seja herdada por Carro e Motocicleta.
+
+        - **Abstração**: É a indisponibilidade para determinar a lógica de um ou vários comportamentos em um objeto.
+        *Exemplo*: **Veículo** determina duas ações como acelerar e frear, logo estes comportamentos deverão ser abstratos pois existem mais de uma maneira de se realizar a mesma operação. ver *Polimorvismo*.
+
+        - **Polimorfismo**: São as inúmeras maneiras de se realizar uma mesma ação.
+        *Exemplo*: Veículo determina duas ações como acelerar e frear, primeiramente precisamos identificar se estaremos nos referindo a **Carro** ou **Motocicleta** para determinar a lógica de aceleração e frenagem dos respectivos veículos.
+
+        Em prática
+
+        Para ilustrar a proposta dos Princípios de POO no nosso quotidiana, vamos simular algumas funcionalidades dos aplicativos de mensagens instantâneas pela internet.
+
+        **MSN Messenger** foi um programa de mensagens instantâneas criado pela Microsoft Corporation. O serviço nasceu a 22 de julho de 1999, anunciando-se como um serviço que permitia falar com uma pessoa através de conversas instantâneas pela internet. Ao longo dos anos surgiram novos serviços de mensagens pela internet como **Facebook Messengerr** e o **VKontakte Telegram**.
