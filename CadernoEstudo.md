@@ -1185,7 +1185,7 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         Entrando em cena o construtor para criarmos nossos objetos já com valores requeridos no momento da criação/unstanciação (`new`)
 
-        ```java
+        ```java Pessoa.java
         //Classe Pessoa.java
         package pessoa;
 
@@ -1218,7 +1218,8 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
                 this.endereco = endereco;
             }
         }
-
+        ```
+        ```java SistemaCadastro.java
         //Classe SistemaCadastro.java
         package pessoa;
 
@@ -1255,7 +1256,7 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         Como um enum é um conjunto de objetos, logo, estes objetos podem conter atributos e metodos. Veja o exemplo de um enum para disponibilizar os quatro estados brasileiros citados acima, contendo informações de Nome, Sigla, e um metodo que pega o nome de cada estado e já retorna para tudo maiusculo.
 
-        ```java
+        ```java ENUM EstadoBrasileiro.java
         // Classe (enum) EstadoBrasileiro.java
         package exemploenum;
 
@@ -1286,7 +1287,8 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
                 return nome.toUpperCase();
             }
         }
-
+        ```
+        ```java SistemaIbge.java
         // Classe SistemaIbge.java
         package exemploenum;
 
@@ -1398,3 +1400,496 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
         Para ilustrar a proposta dos Princípios de POO no nosso quotidiana, vamos simular algumas funcionalidades dos aplicativos de mensagens instantâneas pela internet.
 
         **MSN Messenger** foi um programa de mensagens instantâneas criado pela Microsoft Corporation. O serviço nasceu a 22 de julho de 1999, anunciando-se como um serviço que permitia falar com uma pessoa através de conversas instantâneas pela internet. Ao longo dos anos surgiram novos serviços de mensagens pela internet como **Facebook Messengerr** e o **VKontakte Telegram**.
+
+    - Encapsulamento
+
+        ***Nem tudo precisa ser disponível para todos***
+
+        Já imaginou você instalar o MSN Messenger e ao querer enviar uma mensagem, te fosse solicitado verificar se o computador está conectado a internet e depois, pedir para você salvar a mensagem no histórico? Ou, ao tentar enviar em SMS pelo celular primeiro você precisasse consultar manualmente o seu saldo ?
+
+        Acreto que não seria uma experiência tão agradável de ser ecevutada recorrentemente por nós usuários.
+
+        Mesmo ainda sendo necessária alguma etapas nos processos citados, não é um requisito uma visibilidade pública, isso quer dizer que, além da própria classe que possui a responsabilidade de uma determinada ação.
+
+        Quanto ao MSN Messenger, para nós, só é relevante saber que podemos e como devemos enviar e receber a mensagem, logo, as demais funcionalidades poderão ser consideradas privadas (private). E é ai que se caracteriza a necessidade do pilar de Encapsulamento, o que esconder?
+
+        Vejamos a refatoração abaixo da nossa clasa MSN Messenger:
+
+        ```java MSN
+        // Classe Msn.java
+        package msn_messenger;
+
+        public class Msn {
+
+            public void enviarMensagem() {
+                System.out.println("Enviando mensagem...");
+            }
+
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida");
+            }
+
+            public void salvarHistorico () {
+                System.out.println("Salvando historico...");
+            }
+
+            public void validarConexao () {
+                System.out.println("Conectado a Internet");
+            }
+        }
+        ```
+        ```java Usuario
+        // Classe Usuario.java
+        package msn_messenger;
+
+        public class Usuario {
+
+            public static void main(String[] args) {
+
+                Msn msn = new Msn();
+        
+                msn.validarConexao();
+                msn.enviarMensagem ();
+                msn.receberMensagem();
+                msn.salvarHistorico();
+        
+            }
+        }
+        // O usuario precisa manualmente validar a conexão antes de enviar e receber a mensagem e dpois precisa salvar o histórico.
+        ```
+
+        **Veja o Codigo com ENCAPSULAMENTO**
+
+        ```java MSN
+        // Classe Msn.java
+        package msn_messenger;
+
+        public class Msn {
+
+            public void enviarMensagem() {
+                // Agora atribuimos o metodo validarConexao() 
+                //-agora alterado para private- ao metodo 
+                //enviarMensagem(), isso faz com que o sistema 
+                //verifique a conexao de forma automatica.
+                validarConexao();
+                System.out.println("Enviando mensagem...");
+
+                // Metodo salvarHistorico()-também alterado 
+                //para private- também foi atribuido ao metodo 
+                //enviarMensagem(), também criando uma 
+                //automação no processo.
+                salvarHistorico();
+            }
+
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida");
+
+                // Agora fica mais facil criar uma automação 
+                //para salvar o historico, já que não é mais 
+                //um processo realizado pelo usuario.
+                salvarHistorico();
+            }
+
+            // Metodo salvarHistorico() agora é privado 
+            //(private) isso significa que agora ele é uma 
+            //responsabilidade somente da classe Msn.java
+            private void salvarHistorico () {
+                System.out.println("Salvando historico...");
+            }
+
+            // Metodo validarConexao() agora é privado 
+            //(private) isso significa que agora ele é uma 
+            //responsabilidade somente da classe Msn.java
+            private void validarConexao () {
+                System.out.println("Conectado a Internet");
+            }
+        }
+        ```
+        ```java Usuario
+        // Classe Usuario.java
+        package msn_messenger;
+
+        public class Usuario {
+            public static void main(String[] args) {
+
+                Msn msn = new Msn();
+        
+                // Agora que os metodos de validarConexao() e 
+                //salvarHistorico() são privados não podem 
+                //mais ser acessiveis pelo usuario passando a 
+                //ser responsabilidade da classe Msn.java.
+
+                // O usuario deve se preocupar somente em 
+                //enviar e receber a mensagem deixando que os 
+                //outros processos sejam executados de forma 
+                //automatica.
+                msn.enviarMensagem ();
+                msn.receberMensagem(); 
+            }
+        }
+        ```
+
+    - Herança
+
+        ***Nem tudo se copia, as vezes se herda***
+
+        Já imaginou você ter sido classificado para a vaga de emprego de seus sonhos e como desafio, justamente fosse você criar um diagrama de classes e em seguida os respectivos arquivos .java que apresentasse os fundamentos de POO com base no contexto de vários aplicativos de mensagens instantâneas?
+
+        > [!TIP]
+        > Com base na classe **MsnMessenger**, já
+        > poderia dar os primeiros passo para se
+        > dar bem no processo seletivo,
+        > simplesmente, copiando e colando a
+        > estrutura para as nos classes,
+        > **FacebookMessenger** e **Telegram**.
+
+        > [!CAUTION]
+        > Mas esta não seria a melhor alternativa
+        > para a proposta citada acima.
+
+        Vamos conferir utilizando a principio de herança.
+
+        ```java Serviço Mensagem Instantanea
+        // ServicoMensagemInstantanea.java
+        package msn_messenger;
+
+        public class ServicoMensagemInstantanea {
+
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida");
+                salvarHistorico();
+            }
+            private void salvarHistorico () {
+                System.out.println("Salvando historico...");
+            }
+            private void validarConexao () {
+                System.out.println("Conectado a Internet");
+            }
+        }
+        ```
+        ```java Facebook
+        //FacebookMessenger.java
+        package msn_messenger;
+        public class FacebookMessenger extends ServicoMensagemInstantanea {}
+        ```
+        ```java Telegram
+        //Telegram.java
+        package msn_messenger;
+        public class Telegram extends ServicoMensagemInstantanea {}
+        ```
+        ```java MSN
+        //MsnMessenger.java
+        package msn_messenger;
+        public class MsnMessenger extends ServicoMensagemInstantanea {}
+        ```
+        ```java Usuario
+        //Usuario.java
+        package msn_messenger;
+        public class Usuario {
+            public static void main(String[] args) {
+                //System.out.println("");
+                //System.out.println("MSN");
+
+                MsnMessenger msn = new MsnMessenger();
+                msn.enviarMensagem ();
+                msn.receberMensagem();
+
+                //System.out.println("");
+                //System.out.println("Facebook");
+
+                FacebookMessenger fbm = new FacebookMessenger();
+                fbm.enviarMensagem();
+                fbm.receberMensagem();
+
+                //System.out.println("");
+                //System.out.println("Facebook");
+
+                Telegram tlg = new Telegram();
+                tlg.enviarMensagem();
+                tlg.receberMensagem();
+            }
+        }
+        ```
+
+    - Abstração
+
+        ***Para você ser é preciso você fazer***
+
+        Sabemos que qualquer sistema de mensagens instantâneas se realiza as mesmas operações de Enviar e Reveber Mensagem, dentre outras operações comuns ou exclusivas de cada aplicação disponível no mercado.
+
+        Mas será que as ações realizadas contém o mesmo comportamento? Acreditamos que não.
+
+        > [!NOTE]
+        > Já imaginou a **Microsoft** falar para o
+        > **Facebook**:**"Ei, toma meu código do MSN**.
+
+        Oque vale destacar para compreender aqui é que todo e qualquer sistema de mensagem precisa sim no mínimo Envir e Receber Mensagem, logo, consideramos se firmar um "contrato" para qualquer um que queira se apresentar assim para o mercado.
+
+        Observem a nova estruturação dos códigos com base na implementação apresentada no pilar **Herança**.
+
+        ```java Serviço Mensagem Instantanea
+        //ServicoMensagemInstantanea.java
+        package msn_messenger;
+
+        public abstract class ServicoMensagemInstantanea {
+
+            public abstract void enviarMensagem();
+            public abstract void receberMensagem ();
+        }
+        ```
+        ```java Facebook
+        //FacebookMessenger.java
+        package msn_messenger;
+
+        public class FacebookMessenger extends ServicoMensagemInstantanea {
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo Facebook...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo Facebook");
+                salvarHistorico();
+            }
+            private void salvarHistorico () {
+                System.out.println("Salvando historico pelo Facebook...");
+            }
+            private void validarConexao () {
+                System.out.println("Facebook Conectado a Internet");
+            }
+        }
+        ```
+        ```java Telegram
+        //Telegram.java
+        package msn_messenger;
+        public class Telegram extends ServicoMensagemInstantanea {
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo Telegram...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo Telegram");
+                salvarHistorico();
+            }
+            private void salvarHistorico () {
+                System.out.println("Salvando historico pelo Telegram...");
+            }
+            private void validarConexao () {
+                System.out.println("Telegram Conectado a Internet");
+            }
+        }
+        ```
+        ```java MSN
+        //MsnMessenger.java
+        package msn_messenger;
+        public class MsnMessenger extends ServicoMensagemInstantanea {
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo MSN...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo MSN");
+                salvarHistorico();
+            }
+            private void salvarHistorico () {
+                System.out.println("Salvando historico pelo MSN...");
+            }
+            private void validarConexao () {
+                System.out.println("MSN Conectado a Internet");
+            }
+        }
+        ```
+        ```java Usuario
+        //Usuario.java
+        package msn_messenger;
+        public class Usuario {
+            public static void main(String[] args) {
+                //System.out.println("");
+                //System.out.println("MSN");
+                MsnMessenger msn = new MsnMessenger();
+                msn.enviarMensagem ();
+                msn.receberMensagem();
+
+                //System.out.println("");
+                //System.out.println("Facebook");
+                FacebookMessenger fbm = new FacebookMessenger();
+                fbm.enviarMensagem();
+                fbm.receberMensagem();
+
+                //System.out.println("");
+                //System.out.println("Facebook");
+                Telegram tlg = new Telegram();
+                tlg.enviarMensagem();
+                tlg.receberMensagem();
+            }
+        }
+        ```
+
+    - Polimorfismo
+
+        ***Um mesmo comportamento de várias maneiras***
+
+        Podemos observar no contexto de **Abstração** e **Herança** que canseguimos criar uma singularidade estrutural de nossos elementos. isso quer dizer que qualquer classe que deseja representar um serviço de mensagens, basta estender a classe **ServicoMensagemInstantanea** e implementar os respectivos métodos abstratos. O que vale reforçar aqui é, cada classe terá a mesma ação executando procedimentos de maneira especializada.
+
+        >[!NOTE]
+        >
+        > Para concluirmos a compreensão,
+        > Polimorfismo permite que as classes mais
+        > abstratas determinem ações uniformes para
+        > que cada classe filha concreta
+        > implementem os comportamentos de forma
+        > específica.
+
+        Modificador protected
+
+        Vamos para uma retrospectiva quanto ao requisito do nosso sistema de mensagens instantâneas desde a etapa de encapsulamento.
+
+        O nosso requisito solicita que além de Enviar e Recer Mensagens precisamos validar se o aplicativo está conectado a internet (**validarConexao**) e salvar o historico de cada mensagem (**salvarHistorico**).
+
+        Sabemos que cada aplicativo costuma salvar as mensagens em seus respectivos servidores cloud, mas e quanto a validar se está conectado a internet? Não poderia ser um mecanismo comum à todos ? Logo qualquer classe filha de **SercoMensagemInstantanea** poderia desfrutar através de herança desta funcionalidade.
+
+        >[!NOTE]
+        >
+        > Mas ficaa reflexão de que já aprendemos
+        > sobre visibilidade de recursos: Com o
+        > modificador **private** somente a classe
+        > conhece a implementação quanto que o
+        > modificador **public** todos passarão a
+        > conhecer. Mas gostaríamos que somente as
+        > classes filha soubessem. Bem, é ai que
+        > entra o modificador **protected**
+
+        ```java Serviço Mensagem Instantanea
+        //Classa ServicoMensagemInstantanea.java
+        package msn_messenger.service;
+        public abstract class ServicoMensagemInstantanea {
+
+            public abstract void enviarMensagem();
+            public abstract void receberMensagem ();
+            protected abstract void salvarHistorico ();
+
+            protected void validarConexao () {
+                System.out.println("Conectado a Internet");
+            }
+        }
+        ```
+        ```java Facebook
+        //Classe FacebookMessenger.java
+        package msn_messenger.apps;
+        import msn_messenger.service.ServicoMensagemInstantanea;
+
+        public class FacebookMessenger extends ServicoMensagemInstantanea {
+
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo Facebook...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo Facebook");
+                salvarHistorico();
+            }
+            protected void salvarHistorico () {
+                System.out.println("Salvando historico pelo Facebook...");
+            }
+        }
+        ```
+        ```java MSN
+        //Classe MsnMessenger.java
+        package msn_messenger.apps;
+        import msn_messenger.service.ServicoMensagemInstantanea;
+
+        public class MsnMessenger extends ServicoMensagemInstantanea {
+
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo MSN...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo MSN");
+                salvarHistorico();
+            }
+            protected void salvarHistorico () {
+                System.out.println("Salvando historico pelo MSN...");
+            }  
+        }
+        ```
+        ```java Telegram
+        //Classe Telegram.java
+        package msn_messenger.apps;
+        import msn_messenger.service.ServicoMensagemInstantanea;
+
+        public class Telegram extends ServicoMensagemInstantanea {
+
+            public void enviarMensagem() {
+                validarConexao();
+                System.out.println("Enviando mensagem pelo Telegram...");
+                salvarHistorico();
+            }
+            public void receberMensagem () {
+                System.out.println("Mensagem recebida pelo Telegram");
+                salvarHistorico();
+            }
+            protected void salvarHistorico () {
+                System.out.println("Salvando historico pelo Telegram...");
+            }   
+        }
+        ```
+        ```java Usuario
+        //Clase Usuario.java
+        package msn_messenger.client;
+        import msn_messenger.apps.FacebookMessenger;
+        import msn_messenger.apps.MsnMessenger;
+        import msn_messenger.apps.Telegram;
+        import msn_messenger.service.ServicoMensagemInstantanea;
+
+        public class Usuario { 
+            public static void main(String[] args) {
+
+                ServicoMensagemInstantanea smi = null;
+
+                String appUtilizado = "FBM";
+
+                if (appUtilizado == "MSN"){
+                    smi = new MsnMessenger();
+                }else if (appUtilizado == "FBM"){
+                    smi = new FacebookMessenger();
+                }else if (appUtilizado == "TLG") {
+                    smi = new Telegram();
+                }
+
+                smi.enviarMensagem();
+                smi.receberMensagem();
+            }
+        }
+        ```
+
+    - Interface
+
+        >[!WARNING]
+        >
+        > Antes de tudo, **NÃO** estamos referindo
+        > a interface gráfica.
+
+        Como vimos anteriormente, **Herença** é um dos pilares de POO, mas uma curiosidade que se deve ser esclarecida na linguagem Java é que a mesma não permite o que conhecemos como **Herença Multipla**.
+
+        À medida que vão surgindo novas necessidades, novos equipamentos (objetos) nascem para atender as expectativas de oferecer ferramentas com finalidades bem especificas como por exemplo: Impressoras, Digitalizadoras, Copiadoras e etc.
+
+        Pbservem que não há uma especificação de marca, modelo e ou capacidade de execução das classes citadas acima, isto é o que consideramos o nível mais abstrato da orientação a objetos que denominamos como **interfaces**.
+
+        > Então o que você está dizendo é que **interfaces** é o mesmo que **classe*?
+        >Um molde para representação dos objetos
+        >reais?
+
+        Este é um dos maiores questionamentos dos desenvolvedores no que se refere a modelo de classes da aplicação.
+
+        Como citado acima Java não permite herança múltipla, logo, vamos imaginar que recebemos o desafio de projetar uma nova classe para criar objetos que representem as três caracteristicas citadas acima e que iremos denominar **EquipamentoMultifuncional**.
+        
