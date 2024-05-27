@@ -1892,4 +1892,73 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
         Este é um dos maiores questionamentos dos desenvolvedores no que se refere a modelo de classes da aplicação.
 
         Como citado acima Java não permite herança múltipla, logo, vamos imaginar que recebemos o desafio de projetar uma nova classe para criar objetos que representem as três caracteristicas citadas acima e que iremos denominar **EquipamentoMultifuncional**.
-        
+
+        Antes de iniciarmos a representação cia código, devemos compreender que, assim como em classes e métodos abstratos, quando herdamos de uma interface, precisamos implementar todos os seus métodos, pois os metodos são implicitamente **public abstract**.
+
+        ```java Copiadora
+        //Classe Copiadora.java
+        package interfaces.plataforma;
+        public interface Copiadora {
+            public void copiar ();
+        }
+        ```
+        ```java Digitalizadora
+        //Classe Digitalizadora.java
+        package interfaces.plataforma;
+        public interface Digitalizadora {
+            public void digitalizar ();
+        }
+        ```
+        ```java Impressora
+        //Classe Impressora.java
+        package interfaces.plataforma;
+        public interface Impressora {
+            public void imprimir ();
+        }
+        ```
+        ```java Multifuncional
+        //Classe Multifuncional.java
+        package interfaces.equipamentos;
+
+        import interfaces.plataforma.Copiadora;
+        import interfaces.plataforma.Digitalizadora;
+        import interfaces.plataforma.Impressora;
+
+        public class Multifuncional implements Copiadora , Digitalizadora , Impressora{
+
+            public void imprimir() {
+                System.out.println("Imprimindo Multifuncional");
+            }
+            public void digitalizar() {
+                System.out.println("Digitalizando Multifuncional");
+            }
+            public void copiar() {
+                System.out.println("Copiando Multifuncional");
+            }
+        }
+        ```
+        ```java Fabrica
+        //Classe Fabrica.java
+        package interfaces.estabelecimento;
+
+        import interfaces.equipamentos.Multifuncional;
+        import interfaces.plataforma.Copiadora;
+        import interfaces.plataforma.Digitalizadora;
+        import interfaces.plataforma.Impressora;
+
+        public class Fabrica {
+            public static void main(String[] args) {
+
+                Multifuncional eM = new Multifuncional();
+
+                Copiadora copiadora = eM;
+                Digitalizadora digitalizadora = eM;
+                Impressora impressora = eM;
+
+                copiadora.copiar();
+                digitalizadora.digitalizar();
+                impressora.imprimir();
+
+            } 
+        }
+        ```
