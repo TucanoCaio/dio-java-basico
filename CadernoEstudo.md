@@ -1962,3 +1962,36 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
             } 
         }
         ```
+
+### Conhecendo Collections Java
+
+1. Introdução
+
+    - Introdução e Pre-requisitos
+
+    - Conhecendo a Hierarquia do Collection Framework API Java
+
+        #### Collection Framework API
+
+        - Uma coleção (collection) é uma estrutura de dados que serve oara agrupar muitos elementos em uma única unidade, estes elementos precisão ser Objetos.
+
+        - Uma Colection pode ter coleções homogêneas e heterogêneas, normalmente utilizamos coleções homegêneas de um tipoespecifico.
+
+        - O núcleo principal das coleções é formado pelas interfaces da figura a abaixo, essas interfaces permitem manipular a coleção endependente do nível de detalhe que elas representam.
+
+        - Temos quatro grandes tipos de coleções: `List` (lista), `set`(conjunto), `Queue`(fila) e `map`(mapa), a partir dessas interfaces, temos muitas subclasses concretas que implementam varias formas diferentes de se trabalhar com cada coleção.
+
+        <p aling="center">
+        <img src="./assets/image/collection/hierarchy-collection-framework.png alt="List interface hierarchy Java">
+        <br>
+        <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Method Sumary Collection Interface</a>
+        </p>
+
+        - Todas as interfaces e classes são encontradas dentro do pacote (package) `java.util`.
+
+        - Embora a interface `map` não ser filha direta da interface `collections` ela também pe considerada uma coleção devido a sua função.
+
+        (PEGAR IMAGEM)
+
+        #### Referências:
+        [1]"Java Collections - Universidade Java.
