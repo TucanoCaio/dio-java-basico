@@ -2223,3 +2223,25 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
     - Hands On: Iniciando o projeto e enviando para o GitHub
 
         Os exercicios estão em um novo projeto: java-collections-api no diretorio de estudos dio-java-basico.
+
+        #### Fixando os Conhecimentos
+
+        *Exercicios*:
+
+        1. Operações basicas com List;
+        2. Pesquisa em List;
+        3. Ordenação na List.
+
+    - Operações Basicas List
+
+        #### 1. Lista de Tarefas
+        
+        Crie uma classe chamada "ListaTarefas" que possui uma lista de tarefas como atributo. Cada tarefa é representada por uma classe chamada "Tarefa" que possui um atributo de descrição. Implemente os seguintes métodos:
+
+        - `adicionarTarefa(String descricao)`: Adiciona uma nova tarefa à lista com a descrição fornecida.
+
+        - `removerTarefa(String descricao)`: Remove uma tarefa da lista com base em sua descrição.
+
+        - `obterNumeroTotalTarefas()`: Retorna o número total de tarefas na lista.
+
+        - `obterDescricoesTarefas()`: Retorna uma lista contendo a descrição de todas as tarefas na lista.
