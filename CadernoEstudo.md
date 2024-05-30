@@ -2245,3 +2245,8 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
         - `obterNumeroTotalTarefas()`: Retorna o número total de tarefas na lista.
 
         - `obterDescricoesTarefas()`: Retorna uma lista contendo a descrição de todas as tarefas na lista.
+
+        #### 2. Carrinho de Compras:
+        (*Atividade **DESAFIO-DIY** proposto pelo instrutor da aula. Séra realizado em repositorio proprio **carrinho-compras-collection-api** como um desafio*)
+
+        
