@@ -2271,16 +2271,37 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
         - `pesquisarPorTitulo(String titulo)`: Pesquisa livros por título e retorna o primeiro livro encontrado.
 
-        #### 2. Soma de Números.
+        > #### 2. Soma de Números.
+        >
+        > Crie uma classe chamada "SomaNumeros" que possui uma lista de números inteiros como atributo. Implemente os seguintes métodos:
+        >
+        > - `adicinarNumero(int numero)`: Adiciona um número à lista de números.
+        >
+        > - `calcularSoma()`: Calcula a soma de todos os números na lista e retorna o resultado.
+        >
+        > - `encontrarMaiorNumero()`: Encontra o maior número na lista e retorna o valor.
+        >
+        > - `encontrarMenorNumero()`: Encontra o menor número na listae retorna o valor.
+        >
+        > - `exibirNumeros()`: Retorna uma lista contendo todos os numeros presentes na lista.
 
-        Crie uma classe chamada "SomaNumeros" que possui uma lista de números inteiros como atributo. Implemente os seguintes métodos:
+    - Ordenação List
 
-        - `adicinarNumero(int numero)`: Adiciona um número à lista de números.
+    #### 01. Ordenação de Pessoas
 
-        - `calcularSoma()`: Calcula a soma de todos os números na lista e retorna o resultado.
+    Crie uma classe chamada "OrdenacaoPessoas" que possui uma lista de objetos do tipo "Pessoa" como atributo. Cada pessoa possui atributos como nome, idade e altura. Implemente os seguintes métodos:
 
-        - `encontrarMaiorNumero()`: Encontra o maior número na lista e retorna o valor.
+    - `adicionarPessoa(String nome, int idade, double altura)`: Adiciona uma pessoa à lista.
 
-        - `encontrarMenorNumero()`: Encontra o menor número na listae retorna o valor.
+    - `ordenarPorIdade()`: Ordena as pessoas da lista por idade usando a interface Comparable.
 
-        - `exibirNumeros()`: Retorna uma lista contendo todos os numeros presentes na lista.
+    - `ordenarPorAltura()`: Ordena as pessoas da lista por altura usando um Comparator personalizado.
+
+    > #### 02. Ordenação de Números
+    >
+    > Crie uma classe chamada "OrdenacaoNumeros" que possui uma lista de números inteiros como atributo. Implemente os seguintes métodos:
+    > - `adicionarNumero(int numero)`: Adicionar um número à lista.
+    >
+    > - `ordenarAscendente()`: Ordenar os números da lista em ordem ascendente usando a interface Comparable e a class Collections.
+    >
+    > - `ordenarDescendente()`: Ordena os números da lista emordem descendente usando um Comparable e a class Collections.
