@@ -2305,3 +2305,106 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
     > - `ordenarAscendente()`: Ordenar os números da lista em ordem ascendente usando a interface Comparable e a class Collections.
     >
     > - `ordenarDescendente()`: Ordena os números da lista emordem descendente usando um Comparable e a class Collections.
+
+3. Set Interface
+
+    - Set Interface
+
+        - A interface `Set` é uma coleção que não pode conter elementos duplicados.
+
+        - Essa interface representa o conceito e é usada para representar conjuntos, como um baralho de cartas.
+
+        - A plataforma Java pissui três implementações de `Set` de uso geral: `HashSet`, `TreeSet` e _`LinkedHashSet`.
+
+        - A interface `Set` não permite acesso aleatório a um elemento na coleção.
+
+        - Para percorrer os elementos de um `Set`, você pode usar um iterador ou um loop foreach.
+
+
+        > ***HashSet***: O HashSet é uma implementação da interface Set que armazena os elementos em uma tabela hash. Ele não mantém uma ordem específica dos elementos. A principal vantagem do HashSet é que oferece um desempenho de busca muito eficiente, pois usa funções hash para indexar os elementos. No entanto, a ordem em que os elementos são adicionados pode não ser preservada ao percorrer o conjunto.
+
+        > ***TreeSet***: O TreeSet é uma implementação da interface Set que armazena os elementos em uma árvore binária balanceada. A principal vantagem do TreeSet é que os elementos são sempre retornados na ordem classificada, o que facilita a obtenção de elmentos em uma determinada ordem. No entanto, a busca e a inserção são um pouco mais lentas em comparação com o HashSet.
+
+        >***LinkedHashSet***: O LinkedHashSet é uma implementação da interface Set que mantém a ordem de inserção dos elementos e além de usar uma tabela hash para obter um bom desempenho de busca. Ele é semelhante ao HashSet, mas também mantém uma lista duplamente vinculada que preserva a ordem de inserção. isso permite que os elementos sejam percorridos na ordem em que foram adicionado
+
+    - Operações Basicas Set
+
+        #### 1. Conjunto de Convidados
+
+        Crie uma clkasse chamada "ConjuntoConvidados" que possui um conjunto de objetos do tipo "Convidado" como atributo. Cada convidado possui atributos como nome e código do convite. Implemente os seguintes métodos:
+
+        - `adicionarConvidado(String nome, int codigoConvite)`: Adiciona um convidado ao conjunto.
+        - `removerConvidadoPorCodigoConvite(String codigoConvite)`: Remove um convidado do conjunto com base no código do convite.
+        - `contarConvidodos()`: Conta o número total de convidados no Set.
+        - `exiberConvidados()`: Exibe todos os convidados do conjunto.
+
+        > #### 2 Conjunto de palavras Únicas
+        >
+        > Crie uma classe chamada "ConjuntoPalavrasUnicas" que possui um conjunto de palavras únicas como atributo. Implemente os seguintes métodos:
+        >
+        > - `adicionarPalavra(String palavra)`: Adiciona uma palavra.
+        > - `removerPalavra(String palavra)`: Remove uma palavra.
+        > - `verificarPalavra(String palavra)`: Verifica se uma palavra está presente no conjunto.
+        > S- `exibirPalavrasUnicas()`: Exibe todas as palavras únicas do conjunto.
+
+    - Pesquisa Set
+
+        #### 1. Agenda de Contatos
+
+        Crie uma classe chamada "AgendaContatos" que possui um conjunto de objetos do tipo "Contato" como atributo. Cada contato passui atributos como nome e número de telefone. Implemente os seguintes métodos:
+
+        - `adicionarContato(String nome, int numero)`: Adiciona um contato á agenda.
+
+        - `exibirContatos()`: Exibe todos os contatos da agenda.
+
+        - `pesquisarPorNome(String nome)`: Pesquisa contatos pelo nome e retorna um conjunto com os contatos encontrados.
+
+        - `atualizarNumeroContato(String nome, int novoNumero)`: Atualiza o número de telefone de um contato específico.
+
+        > #### 2. Lista de Tarefas
+        >
+        > Crie uma classe chamada "ListaTarefas" que passui um conjunto de objetos do tipo "Tarefa" como atributo. Cada tarefa possui um atributo de descrição e um atributo booleano para indicar se a tarefa foi concluida ou não. Implemente os seguintes métodos:
+        >
+        > - `adicionarTarefa(String descricao)`: Adiciona uma nova tarefa ao Set.
+        >
+        > - `removerTarefa(String descricao)`: Remove uma tarefa do Set de acordo com a descrição, se estiver presente.
+        >
+        > - `exibirTarefas()`: Exibe todas as tarefas da lista de tarefas.
+        >
+        > - `contarTarefas()`: Conta o número total de tarefas na lista de tarefas.
+        >
+        > - `obterTarefasConcluidas()`: Retorna um Set com as tarefas concluídas.
+        >
+        > - `obterTarefasPendentes()`: Retorna um Set com as tarefas pendentes.
+        >
+        > - `marcarTarefaConcluida(String descricao)`: Marca uma tarefa como concluída de acordo com a descrição.
+        >
+        > - `marcarTarefaPendente(String descricao)`: Marca uma tarefa como pendente de acordo com a descrição.
+        >
+        > - `limparListaTarefas()`: Remove todas as tarefas da lista de tarefas.
+
+    - Ordenação Set
+
+        #### 1. Cadastro de Produto
+
+        Crie uma classe chamada "CadastroProdutos" que possui um conjunto de objetos do tipo "Produto" como atributo. Cada produto possui atributos como nome, cod, preço e quantidade. Implemente os seguintes métodos:
+
+        - `adicionarProduto(int cod, String nome, double preco, int quantidade)`: Adiciona um produto ao cadastro.
+
+        - `exibirProdutosPorNome()`: Exibe todos os produtos em ordem alfabética pelo nome.
+
+        - `exibirProdutosPorPreco()`: Exibe todos os produtos do cadastro em ordem crescente de preço.
+
+        > #### 2. Lista de Alunos
+        >
+        > Crie uma classe chamada "GerenciadorAlunos" que irá lidar com uma lista de alunos. Cada aluno terá atributos como nome, matrícula e nota. Implemente os seguintes métodos:
+        >
+        > - `adicionarAluno(String nome, int matricula, int nota)`: Adiciona um aluno à lista.
+        >
+        > - `removerAluno(String nome)`: Remove um aluno da lista, se estiver presente.
+        >
+        > - `exibirAlunonosPorNome()`: Exibe todos os alunos da lista em ordem alfabética pelo nome.
+        >
+        > - `exibirAlunosPorNota()`: Exibe todos os alunos da lista em ordem crescente de nota.
+        >
+        > - `exibirAlunos()`: Exibe todos od alunos da lista.
