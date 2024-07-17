@@ -3139,3 +3139,220 @@ Caderno de anotações para estudo da trilha JAVA do Bootcamp ofereciso pelo San
 
 9. Extra: Utilizando a Class Optional<T> em um projeto real
 ---
+# Testes e Gerenciamento de Dependências em Projetos Java.
+
+## Gerenciamento de Dependências e Build em Java com Maven.
+
+### Introdução, definição e instalação.
+
+1. Apresentação inicial.
+
+    * Objetivo do curso
+
+        **Você será capaz:**
+
+        - Criar um projeto utilizando a ferramenta
+
+        - Entender os principais conceitos por trás do Maven
+
+        - Gerenciar dependências do seu projeto
+
+        - Configurar plugins e projetos com necessidades específicas
+
+2. O que é o Apache Maven
+
+    * O que o Apache Maven
+
+        - Ferramenta para gerenciar build e dependências de um projeto
+
+        - Primeira versão em julho de 2004, mantido pela Apache Software Foundation
+
+    * Qual problema ele resolve?
+
+        - Endereça como o software foi contruído e suas dependências através de POM (Project Object Model)
+
+        - Facilita a compreensão do desenvolvedor
+
+        - Fornecer informações de quadilade
+
+3. Primeiro projeto e conceitos
+
+    * Criando um projeto via linha de comando
+
+        ```cmd
+        mvn archetype:generate -DgroupId=one.digitalinnovation -DartifactId=quic-start-maven -Darchetype=maven-archetype-quickstart -DinteractiveMode=false
+        ```
+
+    * Comandos que auxiliam o dia a dia
+
+        - Compilar: compile
+
+        - Testar: test
+
+        - Empacotar: package
+
+        - Limpar diretório de trabalho: clean
+
+    * Criando diferentes tipos de projetos
+
+        - Maven archetype
+
+        - Pesquise na internet por "maven archetype list" para entrar a opção que faz mais sentido pro seu cenário
+
+        - Procure pelas instruções de execuções do comando mvn archetype
+
+4. POM, dependencias e repositorios
+
+    * POM
+
+        **Entendendo o POM**
+
+        - POM - Project Object Model
+
+        - Unidade fundamental de trabalho
+
+        - Formato XML
+
+        - Detalha o projeto
+
+        - Detalha como construir o projeto
+
+        - Maven sempre procura pelo pom.xml para realizar sua execução
+
+        **Mais detalhes pom.xml**
+
+        - Nome do projeto
+
+        - Dependencias
+
+        - Módulos
+
+        - Configurações de build
+
+        - Detalhes do projeto (nome, descrição licença, url)
+
+        - Configuração de ambiente (repositórios, tracking, profiles)
+            
+        *Exemplo:*
+
+        **Pom.xml básico**
+
+        ```xml
+        <project>
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>com.mycompany.app</groupId>
+            <artifactId>my-app</artifactId>
+            <version>1</version>
+        </project>
+        ```
+
+    * Repositórios
+
+        **O que são repositórios?**
+
+        - São locais onde podemos encontrar plugins e bibliotecas que o Maven provê
+
+        - Dois tipos: Local e Remoto
+
+        **Repositório remoto**
+
+        - É o local central utilizado pelo Maven para buscar os artefatos.
+
+        - Configurado automaticamente pelo Super POM para utilizar o Maven Central
+
+        *Exemplo:*
+
+        ```xml
+        <pluginRepositories>
+            <pluginRepository>
+                <id>central</id>
+                <name>Central Repository</name>
+                <url>http://repo.maven.apache.org/maven2</url>
+                <layout>default</layout>
+                <snapshot>
+                    <enabled>false</enabled>
+                </snapshot>
+                <releases>
+                    <updatePolicy>never</updatePolicy>
+                </releases>
+            </pluginRepository>
+        </pluginRepositories>
+        ```
+
+        *Configuração*
+
+        - Via pom.xml do projeto
+
+        ```xml
+        <projeto>
+        ...
+            <repositories>
+                <repository>
+                    <id>my-repo1</id>
+                    <name>your custom repo</name>
+                    <url>http://jarsm.dyndns.dk</url>
+                </repository>
+                <repository>
+                    <id>my-repo2</id>
+                    <name>your custom repo</name>
+                    <url>http://jarsm.dyndns.dk</url>
+                </repository>
+            </repositories>
+        ...
+        </projeto>
+        ```
+
+        - Via settings.xml
+        - Localização: pasta_apache_maven/conf/settings.xml
+
+        **Repositório local**
+
+        - É o repositório na maquina utilizado pelo Maven para buscar os artefatos.
+
+        - Estratégia de caching
+        
+        - Localizações
+
+        - Windows: *%USERPROFILE%\.m2|repository*
+
+        - Linux: *$HOME/.m2/repository*
+
+    * Como adicionar dependencias
+
+        ***Configurando:***
+        ```xml
+        ...
+        <dependencies>
+            <dependency>
+                <groupId>one.digitalinnovation</groupId>
+                <artifactId>app-spring</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+        ...
+        ```
+
+        ***Propriedades***
+
+        - groupId: É como se fosse o id da organização. Segue as regras de nomes de pacote Java
+
+        - artifactId: Nome do projeto em si
+
+        - Version: Númeto da versão que será utilizada
+
+        *Exemplo:*
+
+        "hibernate.org/search"
+        ```xml
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search-orm</artifactId>
+            <version>5.11.9.Final</version>
+        </dependency>
+        ```
+
+        ***Na prática***
+
+        - Adicionando uma dependencia ao nosso projeto
+
+        - Acompanhando o download na pasta.m2
